@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <utility>
 
 using namespace std;
 
@@ -56,6 +57,9 @@ class SegmentTree {
 
             init_level_update();
         }
+        ~SegmentTree() {
+            delete[] mem;
+        }
         
         // update value in original data index
         void update(int idx, int val) {
@@ -101,7 +105,7 @@ void test(const char* msg, SegmentTree& seg_tree, int* data, int size) {
     }
 }
 int main() {
-    int h[] = {6, 2, 5, 4, 5, 3, 6};
+    int h[] = {2,1,5,6,2,3};
     int size= sizeof(h) / sizeof(int);
     vector<int> hs(h, h + size);
     
